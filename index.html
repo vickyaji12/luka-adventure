@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Luka Adventure</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="gameCanvas" width="1280" height="720" aria-label="Luka Adventure game"></canvas>
+
+    <div id="hud" class="hud hidden">
+      <div class="hud-left">
+        <div class="brand">
+          <div class="avatar">L</div>
+          <div><strong>LUKA</strong><span id="lives">× 05</span></div>
+        </div>
+        <div class="stat"><span class="coin-icon">●</span><span id="coins">× 00</span></div>
+        <div class="stat"><span class="star-icon">★</span><span id="stars">× 0/3</span></div>
+      </div>
+      <div class="world" id="worldLabel">WORLD 1-1</div>
+      <div class="timer"><span>◷</span><span id="timer">300</span></div>
+    </div>
+
+    <section id="menu" class="overlay">
+      <div class="panel title-panel">
+        <div class="title-logo">LUKA <span>ADVENTURE</span></div>
+        <p class="subtitle">SMALL STEPS • BIG ADVENTURES</p>
+        <button id="playBtn" class="primary">PLAY GAME</button>
+        <button id="levelsBtn">LEVEL SELECT</button>
+        <button id="settingsBtn">SETTINGS</button>
+        <button id="creditsBtn">CREDITS</button>
+        <p class="hint">Keyboard: ← → / A D • Jump: Space / W / ↑ • Pause: Esc</p>
+      </div>
+    </section>
+
+    <section id="levelSelect" class="overlay hidden">
+      <div class="panel">
+        <h1>LEVEL SELECT</h1>
+        <div class="levels-grid">
+          <button class="level-btn" data-level="0">1-1<br><small>Meadow Run</small></button>
+          <button class="level-btn locked">1-2<br><small>Locked</small></button>
+          <button class="level-btn locked">1-3<br><small>Locked</small></button>
+          <button class="level-btn locked">1-4<br><small>Locked</small></button>
+        </div>
+        <button id="levelBack">BACK</button>
+      </div>
+    </section>
+
+    <section id="settings" class="overlay hidden">
+      <div class="panel">
+        <h1>SETTINGS</h1>
+        <label class="setting-row"><span>Sound</span><input id="soundToggle" type="checkbox" checked></label>
+        <label class="setting-row"><span>Screen shake</span><input id="shakeToggle" type="checkbox" checked></label>
+        <button id="settingsBack">BACK</button>
+      </div>
+    </section>
+
+    <section id="credits" class="overlay hidden">
+      <div class="panel">
+        <h1>CREDITS</h1>
+        <p>Luka Adventure — original browser platformer concept.</p>
+        <p>Built with HTML5 Canvas, CSS and vanilla JavaScript.</p>
+        <button id="creditsBack">BACK</button>
+      </div>
+    </section>
+
+    <section id="pause" class="overlay hidden">
+      <div class="panel">
+        <h1>PAUSED</h1>
+        <button id="resumeBtn" class="primary">RESUME</button>
+        <button id="restartBtn">RESTART</button>
+        <button id="pauseMenuBtn">MAIN MENU</button>
+      </div>
+    </section>
+
+    <section id="gameOver" class="overlay hidden">
+      <div class="panel">
+        <h1>GAME OVER</h1>
+        <p>Luka needs another try.</p>
+        <button id="tryAgainBtn" class="primary">TRY AGAIN</button>
+        <button id="gameOverMenuBtn">MAIN MENU</button>
+      </div>
+    </section>
+
+    <section id="complete" class="overlay hidden">
+      <div class="panel result">
+        <h1>LEVEL COMPLETE!</h1>
+        <div class="result-stats">
+          <div>COINS <strong id="resultCoins">0</strong></div>
+          <div>STARS <strong id="resultStars">0/3</strong></div>
+          <div>TIME <strong id="resultTime">0</strong></div>
+        </div>
+        <button id="nextBtn" class="primary">NEXT LEVEL</button>
+        <button id="completeMenuBtn">MAIN MENU</button>
+      </div>
+    </section>
+
+    <div id="mobileControls" class="mobile-controls hidden">
+      <div class="move-buttons">
+        <button id="leftBtn" aria-label="Move left">◀</button>
+        <button id="rightBtn" aria-label="Move right">▶</button>
+      </div>
+      <button id="jumpBtn" class="jump" aria-label="Jump">▲</button>
+    </div>
+
+    <div id="toast" class="toast"></div>
+  </main>
+  <script src="js/game.js"></script>
+</body>
+</html>

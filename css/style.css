@@ -1,0 +1,52 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#071b32;font-family:Arial,Helvetica,sans-serif}
+body{display:flex;align-items:center;justify-content:center}
+#app{position:relative;width:100vw;height:100vh;overflow:hidden;background:#168bd6}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block;image-rendering:auto}
+.hidden{display:none!important}
+.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(4,17,35,.42);backdrop-filter:blur(2px);z-index:20}
+.panel{width:min(520px,92vw);padding:34px;border:4px solid #1c2230;border-radius:22px;background:linear-gradient(#fff7d8,#f4d98a);box-shadow:0 16px 0 rgba(20,23,30,.45),0 24px 60px rgba(0,0,0,.3);text-align:center;color:#302518}
+.title-panel{padding:40px 36px}
+.title-logo{font-weight:1000;font-size:clamp(42px,7vw,76px);line-height:.85;letter-spacing:-3px;color:#fff;text-shadow:4px 5px 0 #1d2b42,7px 8px 0 rgba(0,0,0,.2);margin-bottom:18px}
+.title-logo span{display:block;font-size:.46em;letter-spacing:4px;color:#ffd449;text-shadow:3px 3px 0 #1d2b42;margin-top:12px}
+.subtitle{font-weight:900;letter-spacing:2px;margin:0 0 28px;color:#654e2e}
+button{appearance:none;border:3px solid #202733;border-radius:13px;background:#fff;box-shadow:0 6px 0 #202733;color:#2b261f;font-weight:900;font-size:16px;padding:13px 22px;margin:7px;cursor:pointer;min-width:190px;transition:transform .08s,box-shadow .08s}
+button:hover{transform:translateY(-2px)}
+button:active{transform:translateY(4px);box-shadow:0 2px 0 #202733}
+button.primary{background:#ffd84d}
+.hint{font-size:12px;font-weight:700;opacity:.7;margin:24px 0 0}
+.panel h1{margin:0 0 24px;font-size:38px}
+.levels-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.levels-grid button{width:auto;min-width:0;margin:0}
+.levels-grid small{opacity:.65}
+.levels-grid .locked{opacity:.45;cursor:not-allowed}
+.setting-row{display:flex;align-items:center;justify-content:space-between;font-weight:900;font-size:18px;margin:16px 0;padding:14px;border-radius:12px;background:rgba(255,255,255,.45)}
+.setting-row input{width:22px;height:22px}
+.hud{position:absolute;left:0;right:0;top:0;z-index:10;height:88px;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;color:white;font-weight:900;text-shadow:3px 3px 0 #182235;pointer-events:none}
+.hud-left{display:flex;align-items:center;gap:26px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand>div:last-child{display:flex;flex-direction:column;line-height:1}
+.brand strong{font-size:22px}
+.brand span{font-size:19px}
+.avatar{width:48px;height:48px;border:3px solid #182235;border-radius:50%;display:grid;place-items:center;background:#f2a86b;color:#182235;font-size:26px;text-shadow:none}
+.stat{font-size:22px;display:flex;gap:8px;align-items:center}
+.coin-icon{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#ffd12f;border:3px solid #8a5510;color:#fff7a6;text-shadow:none;font-size:15px}
+.star-icon{color:#ffd43b;font-size:28px}
+.world{font-size:25px;letter-spacing:1px}
+.timer{display:flex;align-items:center;gap:8px;font-size:25px}
+.toast{position:absolute;left:50%;top:105px;transform:translateX(-50%) translateY(-20px);z-index:30;background:rgba(20,28,42,.9);color:#fff;padding:10px 18px;border-radius:999px;font-weight:900;opacity:0;pointer-events:none;transition:.2s}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.mobile-controls{position:absolute;left:0;right:0;bottom:20px;z-index:15;display:flex;justify-content:space-between;align-items:flex-end;padding:0 18px;pointer-events:none}
+.mobile-controls button{pointer-events:auto;min-width:0;width:70px;height:70px;border-radius:50%;padding:0;margin:0;background:rgba(255,255,255,.65);backdrop-filter:blur(4px);font-size:27px}
+.move-buttons{display:flex;gap:12px}
+.mobile-controls .jump{width:84px;height:84px;background:rgba(255,216,77,.8)}
+@media (max-width:800px){
+ .hud{height:68px;padding:8px 10px}
+ .hud-left{gap:9px}
+ .avatar{width:36px;height:36px;font-size:20px}
+ .brand strong{font-size:15px}.brand span{font-size:13px}
+ .stat{font-size:15px;gap:4px}.coin-icon{width:20px;height:20px;font-size:11px}
+ .star-icon{font-size:20px}.world{font-size:16px}.timer{font-size:17px}
+ .panel{padding:26px 20px}.panel h1{font-size:30px}
+}
+@media (pointer:coarse){.mobile-controls{display:flex}}
